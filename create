@@ -1,0 +1,20 @@
+#!/bin/bash
+
+DIRECTORY=/Users/username/dev/MyProjects
+
+FILE=/Users/username/dev/MyProjects/"$1"
+
+if [ -f "$FILE" ]; then
+  echo  "$FILE exists"
+else 
+  mkdir -- "$FILE"
+  cd -- "$FILE"
+  git init
+  touch README.md
+  git add -A
+  git commit -m "Initial commit"
+  git remote add origin https://github.com/username/"$1".git
+  curl -H "Authorization: token Oauth token" https://api.github.com/user/repos -d "{\"name\":\"$1\"}"
+  git push origin master
+  code .
+fi 
