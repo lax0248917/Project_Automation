@@ -9,3 +9,5 @@
 - [x] Adds the readme file
 - [x] Makes an initial commit
 - [x] Launches VSCode
+
+### Created a git-update command to automate the commit process.
